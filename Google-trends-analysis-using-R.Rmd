@@ -1,0 +1,136 @@
+---
+title: "Google Trends Analysis in R"
+author: "Olayinka Arimoro"
+date: "May 4, 2021"
+output: html_document
+---
+
+# Task One: Getting Started
+In this task, you will import the required
+packages for this project
+```{r}
+
+## 1.1: Importing required packages
+library(gtrendsR)
+library(dplyr)
+library(ggplot2)
+library(ggforce)
+library(ggrepel)
+library(spData)
+library(tmap)
+library(DT)
+
+```
+
+#Task Two: Getting Google trends data
+In this task, we will learn how to get 
+Google trends data about Covid-19
+```{r}
+
+## 2.1: Retrieve the worldwide data for 
+## "covid" in the last 12 months
+
+
+## 2.2: Return the names of the datasets from trends
+
+
+## 2.3: Search for the keywords "covid" and 
+## "vaccine" in US in the last 12 months
+gtrends(keyword = c("covid","vaccine"),time = "today 12-m", geo="US")
+
+```
+
+#Task Three: Interest Over Time Data
+In this task, we will learn how to examine 
+and explore the interest over time data
+```{r}
+
+## 3.1: Return the interest over time 
+## data from the trends dataset
+
+
+## 3.2: Print the interest_time data
+
+
+## 3.3: Return the dates with the highest number of hits
+
+
+```
+
+#Task Four: Visualize the Interest Over Time Data
+In this task, we will learn how to 
+visualize the interest over time data
+```{r}
+
+## 4.1: Visualize the interest over time data
+
+
+## 4.2: Zoom in to check between January 1, 2021
+## to April 30, 2021
+
+
+```
+
+#Task Five: Related Queries Data
+In this task, we will examine and 
+explore related queries to Covid
+```{r}
+
+## 5.1: Return the related queries data
+
+
+## 5.2: Create a bar plot for the queries 
+## most related to covid
+
+
+```
+
+#Task Six: Interest by Country Data
+In this task, we will examine and 
+explore the interest by country data
+```{r}
+
+## 6.1: Return the interest by country data
+
+
+## 6.2: Create a variable called "countries" 
+## from the world data and interest by country data
+
+
+## 6.3: Create a map of the interest by countries
+tm_shape(countries) +
+  tm_fill("hits",
+          title = "Search Interest",
+          legend.reverse = T,
+          id = "name_long", 
+          popup.vars = c(Name = "name_long", Search.Interest = "hits",
+                       Population = "pop", Life.Expectancy = "lifeExp", 
+                       GDP.per.capita = "gdpPercap"))
+
+## 6.4: Different versions of the map
+tmap_mode("view") #interactive maps
+
+## OR
+
+tmap_mode("plot") #plot-ready maps
+
+```
+
+#Task Seven: Interest by City Data
+In this task, we will examine and
+explore the interest by city data
+```{r}
+
+## 7.1: Return the interest by city data
+
+
+## 7.2: Return the top 3 cities with the highest hits
+
+
+## 7.3: Return a table for the interest by city
+
+
+## 7.4: Return the first 25 rows of the table
+
+
+```
